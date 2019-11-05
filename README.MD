@@ -1,3 +1,3 @@
-# Obapet User Module
+# Losts User Module
 
-Authentication module for Obapet project. Powered with Node.js.
+Authentication module for Losts project. Powered with Node.js.
