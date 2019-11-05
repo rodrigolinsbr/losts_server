@@ -5,7 +5,6 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   name: { type: String, required: true },
   phone: { type: String, required: true },
-  cpf: { type: String, required: true },
   createAt: { type: Date, default: Date.now },
   auth: {
     access_token: { type: String },
