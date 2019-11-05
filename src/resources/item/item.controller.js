@@ -30,9 +30,9 @@ async function checkUser(username, access_token) {
 module.exports = {
   async new(req, res) {
     try {
-      let user = await ItemRepository.findAdminByEmailIsActive(req.body.email);
+      //let user = await ItemRepository.findAdminByEmailIsActive(req.body.email);
 
-      if (!user) {
+      if (true) {
         console.log(req.body);
         let user = await ItemRepository.adminCreate(req.body);
 
