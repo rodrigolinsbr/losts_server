@@ -1,0 +1,31 @@
+{
+  "name": "user-module",
+  "version": "1.0.0",
+  "description": "Authentication module for Obapet project. Powered with Node.js.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/melhorcomunicacao/obapet/user-module.git"
+  },
+  "author": "obapet-team",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "global": "^4.4.0",
+    "md5": "^2.2.1",
+    "mongoose": "^5.6.1",
+    "sha1": "^1.1.1",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
