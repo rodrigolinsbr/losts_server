@@ -3,12 +3,11 @@ const routes = express.Router();
 const adminController = require("../item/item.controller");
 
 //admins routes
-routes.post("/admins", adminController.new);
-routes.patch("/admins/:id", adminController.update);
-routes.delete("/admins/:id", adminController.delete);
-routes.get("/admins/generate_access_token", adminController.genToken);
-routes.get("/admins/", adminController.getAll);
-routes.get("/admins/:id", adminController.getAdmin);
-routes.post("/admins/auth", adminController.auth);
+routes.post("/itens", adminController.new);
+routes.patch("/itens/:id", adminController.update);
+routes.delete("/itens/:id", adminController.delete);
+routes.get("/itens/", adminController.getAll);
+routes.get("/itens/:id", adminController.getAdmin);
+routes.post("/itens/auth", adminController.auth);
 
 module.exports = routes;
