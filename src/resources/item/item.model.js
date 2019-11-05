@@ -8,12 +8,11 @@ const itemSchema = new mongoose.Schema({
   location: {
     latitude: { type: String },
     longitude: { type: String },
-    adress: { 
-      region: {
+    region: {
         type: String,
         enum: ["Nordeste", "Norte", "Sul", "Sudeste", "Centro-Oeste"]
       },
-      state: {
+    state: {
         type: String,
         enum: [
           "",
@@ -40,7 +39,6 @@ const itemSchema = new mongoose.Schema({
         ]
       },
       adress: String 
-    }
   },
   situation: { type: String, default: "active", enum:["active", "inactive"]},
   isDeleted: { type: Boolean, default: false }

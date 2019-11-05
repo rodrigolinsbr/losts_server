@@ -31,9 +31,10 @@ exports.findAdminByEmailIsActive = async email => {
   }
 };
 
-exports.adminCreate = async admin => {
+exports.itemCreate = async item => {
   try {
-    data = await Item.create(admin);
+    
+    data = await Item.create(item);
     return data;
   } catch (e) {
     throw new Error(e);
@@ -93,6 +94,7 @@ exports.adminGetAll = async (pagelimit,page) => {
   try {
     let data = await Item.find({isDeleted:false}).skip(page>0 ?((page-1)*pagelimit):0).
     limit(pagelimit);    
+    
     return data;
   } catch (e) {
     throw new Error(e);

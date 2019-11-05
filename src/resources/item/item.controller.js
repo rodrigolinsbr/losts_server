@@ -29,28 +29,21 @@ async function checkUser(username, access_token) {
 
 module.exports = {
   async new(req, res) {
+    let messages = [], item;
+    let statusCode = status.INTERNAL_SERVER_ERROR;
     try {
       //let user = await ItemRepository.findAdminByEmailIsActive(req.body.email);
 
       if (true) {
-        console.log(req.body);
-        let user = await ItemRepository.adminCreate(req.body);
+        // console.log(req.body);
+        let item = await ItemRepository.itemCreate(req.body);
+        console.log(item)
+        // res.status(status.CREATED).json({ message: status["200_MESSAGE"] });
+        return res.status(statusCode).json({ result: item, messages });
 
-        // necessario gerar token
-        let password = "123456@Aa";
-
-        await ItemRepository.bcryptSave(user._id, password);
-
-        user.password = undefined;
-
-        res.status(status.CREATED).json({ message: status["200_MESSAGE"] });
-
-        console.log(user);
+        
       } else {
-        user.password = undefined;
-        user.auth = undefined;
-        user.isActive = undefined;
-        user._id = undefined;
+        
         res.status(status.CONFLICT).json({ message: status["409_MESSAGE"] });
       }
     } catch (err) {
@@ -262,7 +255,7 @@ module.exports = {
     let { name, access_token } = req.headers;
 
     try {
-      let user = await Admin.findOne({ name, isDeleted: false });
+      
 
       if (true) {
         const limit = parseInt(req.query.limit);
@@ -273,17 +266,15 @@ module.exports = {
           const limit = 50;
           const page = 1;
         }
+        
 
         let all = await ItemRepository.adminGetAll(limit, page);
-        let totalRegion = await ItemRepository.adminGetAllRegion();
-        let totalState = await ItemRepository.adminGetAllStates();
-        let totalAll = totalRegion + totalState;
+        // let totalRegion = await ItemRepository.adminGetAllRegion();
+        // let totalState = await ItemRepository.adminGetAllStates();
+        // let totalAll = totalRegion + totalState;
 
         result = {
-          all,
-          totalRegion,
-          totalState,
-          totalAll
+          all
         };
         return res
           .status(status.OK)
